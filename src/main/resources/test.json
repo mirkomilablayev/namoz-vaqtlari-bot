@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "result": {
+    "user": {
+      "id": 1813855034,
+      "is_bot": false,
+      "first_name": "Mirkomil",
+      "last_name": "Zafarovich",
+      "username": "mirkomil_ablayev",
+      "language_code": "en"
+    },
+    "status": "creator",
+    "is_anonymous": false
+  }
+}
