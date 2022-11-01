@@ -14,11 +14,13 @@ import com.example.namoz_vaqtlari_bot.repository.RegionRepo;
 import com.example.namoz_vaqtlari_bot.repository.RoleRepository;
 import com.example.namoz_vaqtlari_bot.repository.UserRepository;
 import com.example.namoz_vaqtlari_bot.util.Constants;
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -31,10 +33,14 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import javax.swing.text.DateFormatter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @RequiredArgsConstructor
@@ -202,9 +208,9 @@ public class MyBotService extends TelegramLongPollingBot {
             sendMessage.setText("Asosiy Menyu");
             userButtons(sendMessage, user);
         } else if (text.equalsIgnoreCase(Constants.userButton2)) {
-            sendThisMonthTimes(sendMessage, user,null);
+            sendThisMonthTimes(sendMessage, user, null);
         } else if (isExistWeekDays(text)) {
-            sendThisMonthTimes(sendMessage, user,text);
+            sendThisMonthTimes(sendMessage, user, text);
         } else {
             sendMessage.setText("Xato Buyruq kiritildi");
         }
@@ -221,7 +227,7 @@ public class MyBotService extends TelegramLongPollingBot {
     }
 
     private void sendThisMonthTimes(SendMessage sendMessage, User user, String weekDay) {
-        String message = "Shu Xafta Uchun Na'moz Vaqtlari\n\n\uD83C\uDF0D Mintaqa >> "+user.getRegion()+"\n\n";
+        String message = "Shu Xafta Uchun Na'moz Vaqtlari\n\n\uD83C\uDF0D Mintaqa >> " + user.getRegion() + "\n\n";
         List<TimeResponseDto> body = getTimes(user);
         String currencyMessage = "\uD83D\uDCB8 Valyutalar Kurslari: \n\n";
         String[] strings = {"USD", "RUB", "EUR"};
@@ -430,6 +436,33 @@ public class MyBotService extends TelegramLongPollingBot {
         } else {
             sendMessage.setText("Wrong step found");
         }
+    }
+
+
+    @Scheduled(cron = "30 0 * * *")
+    private void timeSender() {
+        String url = "https://islomapi.uz/api/present/day?region=";
+        List<Region> regionAll = regionRepo.findAll();
+        List<TimeResponseDto> res = new ArrayList<>();
+        TimeResponseDto item;
+        for (Region region : regionAll) {
+            item = new RestTemplate().getForObject(url + region.getName(), TimeResponseDto.class);
+            res.add(item);
+        }
+
+
+    }
+
+
+    private List<TimeResponseDto> sortTimeResponseDtoByTime(List<TimeResponseDto> res) {
+
+        return null;
+    }
+
+
+    private LocalTime makeLocalTime(String str) {
+        String[] split = str.split(":");
+        return LocalTime.of(Integer.parseInt(split[1]), Integer.parseInt(split[0]));
     }
 
 }
