@@ -23,5 +23,6 @@ public class User {
     private List<UserRole> role;
     private Boolean isOnUserPage = true;
     private String stepOn;
+    private String region;
     private int stepOnNumber;
 }

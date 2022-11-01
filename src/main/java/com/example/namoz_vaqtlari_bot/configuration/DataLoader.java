@@ -47,19 +47,19 @@ public class DataLoader implements CommandLineRunner {
 
 
 
-        regionRepo.save(new Region(1L, "Toshkent" , "Toshkent Vil"));
-        regionRepo.save(new Region(2L, "Andijon" , "Andijon Vil"));
-        regionRepo.save(new Region(3L, "Namangan" , "Namangan Vil"));
-        regionRepo.save(new Region(4L, "Jizzax" , "Jizzax vil"));
-        regionRepo.save(new Region(5L, "Samarqand" , "Samarqand vil"));
-        regionRepo.save(new Region(6L, "Navoiy" , "Navoiy vil"));
-        regionRepo.save(new Region(7L, "Buxoro" , "Buxoro vil"));
-        regionRepo.save(new Region(8L, "Nukus" , "Qoraqalpogoston res"));
-        regionRepo.save(new Region(9L, "Urganch" , "Xorazm vil"));
-        regionRepo.save(new Region(10L, "Qarshi" , "Qashqadaryo"));
-        regionRepo.save(new Region(11L, "Termiz" , "Surxandaryo Vil"));
-        regionRepo.save(new Region(12L, "Guliston" , "Sirdaryo vil"));
-        regionRepo.save(new Region(13L, "Urganch" , "Xorazm"));
+        regionRepo.save(new Region( "Toshkent" , "Toshkent Vil"));
+        regionRepo.save(new Region( "Andijon" , "Andijon Vil"));
+        regionRepo.save(new Region( "Namangan" , "Namangan Vil"));
+        regionRepo.save(new Region( "Jizzax" , "Jizzax vil"));
+        regionRepo.save(new Region( "Samarqand" , "Samarqand vil"));
+        regionRepo.save(new Region( "Navoiy" , "Navoiy vil"));
+        regionRepo.save(new Region( "Buxoro" , "Buxoro vil"));
+        regionRepo.save(new Region( "Nukus" , "Qoraqalpogoston res"));
+        regionRepo.save(new Region( "Urganch" , "Xorazm vil"));
+        regionRepo.save(new Region( "Qarshi" , "Qashqadaryo"));
+        regionRepo.save(new Region( "Termiz" , "Surxandaryo Vil"));
+        regionRepo.save(new Region( "Guliston" , "Sirdaryo vil"));
+        regionRepo.save(new Region( "Urganch" , "Xorazm"));
 
         roleRepository.save(new UserRole(Constants.USER));
         roleRepository.save(new UserRole(Constants.ADMIN));

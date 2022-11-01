@@ -5,9 +5,6 @@ public interface Constants {
     String USER = "USER";
 
 
-
-
-
     // steps for admin
 
     String adminStep1 = "main_menu";
@@ -20,5 +17,9 @@ public interface Constants {
 
     //steps for user
 
-    String userStep1 = "";
+    String userStep1 = "compulsory channels";
+
+    String userButton1 = "Viloyatni O'zgartirish";
+    String userButton2 = "Bir Xaftalik Namoz Vaqtlari";
+    String userButton3 = "Adminga O'tish";
 }
