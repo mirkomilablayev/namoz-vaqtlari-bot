@@ -92,8 +92,8 @@ public class MyBotService extends TelegramLongPollingBot {
             List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
             List<InlineKeyboardButton> rowInLine = new ArrayList<>();
             InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
-            inlineKeyboardButton.setText(compulsoryChannel.getChannel_name());
-            inlineKeyboardButton.setUrl("https://t.me//" + compulsoryChannel.getChannel_username());
+            inlineKeyboardButton.setText(compulsoryChannel.getResult().getTitle());
+            inlineKeyboardButton.setUrl("https://t.me//" + compulsoryChannel.getResult().getUsername());
             rowInLine.add(inlineKeyboardButton);
             rowsInLine.add(rowInLine);
             inlineKeyboardMarkup.setKeyboard(rowsInLine);
@@ -147,7 +147,7 @@ public class MyBotService extends TelegramLongPollingBot {
         String line;
         StringBuilder responseContent = new StringBuilder();
 
-        String chat_username = "@mirkomil_dev";
+        String chat_username = "@djhdjfhdhjfdhfdjhfj";
         String realId = user.getRealId();
         String url_ = "https://api.telegram.org/bot" + token + "/getChatMember?chat_id=" + chat_username + "&user_id=" + realId;
 
