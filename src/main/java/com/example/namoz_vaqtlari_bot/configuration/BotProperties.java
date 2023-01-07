@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "bot")
-public class BotConfiguration {
+public class BotProperties {
 
     @Value("${bot.username}")
     private String username;

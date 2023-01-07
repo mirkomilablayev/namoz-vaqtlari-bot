@@ -7,25 +7,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@EqualsAndHashCode
-@Entity
+@Entity(name = "regions")
 public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    String reg_name;
+    private String regionName;
+    private String regionShowName;
 
-    public Region(String name, String reg_name){
-        this.name = name;
-        this.reg_name = reg_name;
+    public Region(String regionName, String regionShowName) {
+        this.regionName = regionName;
+        this.regionShowName = regionShowName;
     }
 }

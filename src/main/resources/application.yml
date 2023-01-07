@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root123
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      .hibernate:
+        enable_lazy_load_no_trans: true
+
+bot:
+  username: namoz_vaqtlari_demo_bot
+  token: 5955232267:AAGObNil6hUqmoJltWIoHBaYFWrPBU76a_A

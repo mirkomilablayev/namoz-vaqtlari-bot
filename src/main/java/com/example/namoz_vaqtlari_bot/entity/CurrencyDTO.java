@@ -1,4 +1,5 @@
-package com.example.namoz_vaqtlari_bot.dto.currency;
+package com.example.namoz_vaqtlari_bot.entity;
+
 
 import lombok.*;
 
@@ -7,9 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@EqualsAndHashCode
-public class CurrencyDto {
-    private Long id;
+public class CurrencyDTO {
+    private String id;
     private String Code;
     private String Ccy;
     private String CcyNm_RU;
